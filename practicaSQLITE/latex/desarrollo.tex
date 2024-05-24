@@ -1,0 +1,36 @@
+\section{Enunciado de la Actividad}
+
+Realice un ejemplo de sqlite libre, con la base de datos imdb.db, tendrá que usar ajax y json para la comunicación entre cliente y servidor; así como git para sus versiones. No es necesario que entregue un programa funcionando, pero si es importante que muestre los errores encontrados.
+
+\section{Desarrollo}
+
+Para desarrollar esta actividad se instalo SQLite3 por medio del administrador de paquetes npm. 
+\begin{lstlisting}[language=bash]
+    > npm install sqlite3
+\end{lstlisting}
+
+Luego de haber instalado el paquete, se creo la carpeta node\_modules, en la cual se encuentra el paquete sqlite3. Se procedió a crear el archivo index.js, en el cual se inicio con la conexión a la base de datos imdb.db.\\
+
+\begin{lstlisting}
+    const sqlite = new require('sqlite3')
+
+    const db = new sqlite.Database('./imdb.db', sqlite.OPEN_READWRITE, (error) => {
+        if (error)
+            console.error('Error la intentar abrir la base de datos: ' + error.message);
+        else 
+            console.log('La base de datos fue abierta');
+    })
+\end{lstlisting}
+
+
+
+
+
+
+
+\clearpage
+\begin{thebibliography}{X}
+    \bibitem{Autor1} Complete reference here
+    \bibitem{Autor2} Complete reference here
+    \bibitem{Autor3} Complete reference here
+\end{thebibliography}

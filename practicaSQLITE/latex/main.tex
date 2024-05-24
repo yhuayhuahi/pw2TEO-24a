@@ -1,0 +1,127 @@
+\documentclass[oneside,letterpaper]{article}            % document properties
+\usepackage[spanish, es-lcroman]{babel}                 % spanish package
+\usepackage[utf8]{inputenc}                             % codificacion de caracteres utf-8
+\usepackage{graphicx}                                   % Required for inserting images
+\usepackage{float}                                      % float child elements
+\usepackage[bottom=2cm,top=2.5cm,right=2.5cm,left=2.5cm]{geometry} % modify margins 
+\usepackage{setspace}                                   % configure space between lines
+%\usepackage{paracol}                                    % create multiple developed columns 
+\usepackage{enumitem}                                   % total control of lists and its bullets
+\usepackage{amsmath}                                    % math independencies
+\usepackage[hidelinks]{hyperref}                        % internal links and more
+\usepackage{multicol}                                   % multiple columsn
+\usepackage{lipsum}                                     % lipsum random text
+\usepackage{colortbl}                                   % define customize colors & table colore
+\usepackage{array}                                      % customize tables  
+\usepackage{rotating}                                   % allow rotate contents
+
+\usepackage{listings}           % show & customize code
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  extra definitions  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lstdefinestyle{ascii-tree}{
+	literate={├}{|}1 {─}{--}1 {└}{+}1 
+}
+% para el codigo fuente
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{graya}{rgb}{0.97,0.97,0.97}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{codebackground}{rgb}{0.95, 0.95, 0.92}
+\definecolor{tablebackground}{rgb}{0.8, 0, 0}
+\lstset{
+      frame=tb,
+      language=bash,
+      aboveskip=3mm,
+      belowskip=3mm,
+      showstringspaces=false,
+      columns=flexible,
+      basicstyle={\small\ttfamily},
+      numbers=left,
+      numberstyle=\tiny\color{gray},
+      keywordstyle=\color{blue},
+      commentstyle=\color{dkgreen},
+      stringstyle=\color{mauve},
+      breaklines=true,
+      breakatwhitespace=true,
+      tabsize=3,
+      backgroundcolor= \color{codebackground}
+}
+
+\renewcommand{\arraystretch}{2}                         % vertical space with factor 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  variables  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\itemYear}{AÑO DE LA UNIDAD, LA PAZ Y EL DESARROLLO}
+\newcommand{\itemRType}{TRABAJO INDIVIDUAL}
+\newcommand{\itemCourseG}{Programación Web 2}
+\newcommand{\itemTheme}{Practica con SQLite}
+\newcommand{\itemPracticeNumber}{0?}
+\newcommand{\itemAcademic}{2023 - B}
+\newcommand{\itemSemester}{VIII} %Romanos de preferencia
+\newcommand{\itemDate}{?? / ?? / 2023}
+\newcommand{\itemHour}{23:59 PM}
+
+\newcommand{\itemStudentA}{Huayhua Hillpa Yourdyy Yossimar}
+\newcommand{\itemStudentB}{Participante Nombre Apellido 2}
+\newcommand{\itemStudentC}{Participante Nombre Apellido 3}
+\newcommand{\itemStudentD}{Participante Nombre Apellido 4}
+\newcommand{\itemStudentE}{Participante Nombre Apellido 5}
+\newcommand{\itemTeacher}{Corrales Delgado Carlo Jose Luis}
+\begin{document}
+\begin{titlepage}
+    \centering
+    \begin{spacing}{1.7}
+        \Large{``\itemYear''}\\ % add current year's name
+        \Large {\textsc{Universidad Nacional de San Agustín de Arequipa}}\\ 
+        \large{\textsc{Facultad de Ingeniería de Producción  y Servicios}\\
+        \textsc{Escuela Profesional de Ingeniería de Sistemas}}
+        \normalsize
+    \end{spacing}
+    
+    \vspace{0.5cm}
+    
+    \begin{figure}[h!]
+        \begin{center}
+            \includegraphics[scale=0.67]{images/IN.jpg} 
+        \end{center}
+    \end{figure}
+    
+    \itemRType\\ % change to "indivudual, grupal, o de respon. social.
+    \vspace{0.35cm}
+    Tema\\
+    \vspace{0.5cm}
+    \begin{spacing}{1}
+        \Large{\textsc{\itemTheme}}
+    \end{spacing}
+    \vspace{0.5cm}
+    \textsc{Asignatura:}\\\vspace{0.35cm}
+    \itemCourseG
+    \\\vspace{0.5cm}
+    \textsc{Ingeniero(a):}\\\vspace{0.35cm}
+    \itemTeacher
+    
+    \vspace{0.25cm}
+    \begin{flushleft}
+    \textsc{ Integrantes:}\vspace{0.2cm}
+    \end{flushleft}
+    
+    \begin{multicols}{2}
+        \begin{flushleft}
+            \begin{spacing}{1.6}
+                \hspace{1.7cm}{\small $\bullet$ \itemStudentA}\\
+                %\hspace{1.7cm}{\small $\bullet$ \itemStudentB}\\
+                %\hspace{1.7cm}{\small $\bullet$ \itemStudentC}\\
+                %\hspace{1.7cm}{\small $\bullet$ \itemStudentD}
+            \end{spacing}
+        \end{flushleft}
+    \end{multicols}
+    %{\small $\bullet$ \itemStudentE}\\       % if even numbers of members, delete this line, and adjust spaces
+    \vspace{1cm}
+    AREQUIPA 2024
+\end{titlepage}
+     
+    %\begin{spacing}{1.8}                    % uncomment all of this if neccesary
+    %    \tableofcontents
+    %\end{spacing}
+    %\newpage 
+    
+    \input{desarrollo}% Desarrolla tu contenido dentro de desarrollo
+    %\input{conclusiones} % agregar las partes necesarias
+\end{document}
