@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Cascadia Code', 'Consolas', sans-serif;
+            background-color: #cba8da;
+            color: #331b41;
+            padding: 20px;
+        }
+        
+        h2 {
+            color: #2a1438;
+        }
+
+        #mostrar {
+            background-color: #4c1272;
+            color: rgb(182, 160, 189);
+            border-radius: 5px;
+            border: none;
+            padding: 5px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        table, th, td {
+            border: 1px solid #70148b;
+        }
+        
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #4c1272;
+            color: rgb(182, 160, 189);
+        }
+        
+        tr:nth-child(even) {
+            background-color: #ebe8fd;
+        }
+        
+        tr:hover {
+            background-color: #cdc8f6;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Informacion sobre peliculas</h1>
+    </header>
+    <main>
+        <p>Peliculas disponibles</p>
+        <button id="mostrar" onclick="mostrar();">Buscar</button>
+        <div id="infoConsulta"></div>
+    </main>
+    <script>
+        // Esta funcion accedemos al JSON enviado y usamos los datos para mostrarlos como tabla
+        const mostrar = function() {
+            const url = "http://localhost:3000/data"
+            fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const mostrarBusqueda = document.querySelector('#infoConsulta');
+                let tabla = '<h2>Resultado de la consulta</h2><table>';
+                tabla += '<tr>';
+                for (let key in data[0]) {
+                    tabla += `<th>${key}</th>`;
+                }
+                tabla += '</tr>';
+                for (let elemento of data) {
+                    tabla += '<tr>';
+                    for (let key in elemento) {
+                        tabla += `<td>${elemento[key]}</td>`;
+                    }
+                    tabla += '</tr>';
+                }
+                tabla += '</table>';
+                mostrarBusqueda.innerHTML = tabla;
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+<script src="server.js"></script>
+</html>
