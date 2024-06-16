@@ -11,7 +11,7 @@
   <h1>Probando plantillas</h1>
   {% block content %}
   <p>
-    {{mytext}}
+    {{mytext|upper}}
     {{mynumber}}
     {% for myitem in mylist %}
     <li>{{forloop.counter}} - {{ myitem }}</li>

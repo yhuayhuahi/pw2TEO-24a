@@ -3,5 +3,6 @@ from . import views
 
 # Creamos urls en la aplicacion para conectar al proyecto
 urlpatterns = [
-    path('', views.myHomeView)
+    path('', views.myHomeView),
+    path('test/', views.mySecondView)
 ]
