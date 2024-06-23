@@ -8,7 +8,7 @@ class NuevaPersona(forms.Form):
 
 # django 4 y 5
 class RawPersonaForm(forms.Form):
-    nombre = forms.CharField()
+    nombre = forms.CharField(label = "Your Name")
     apellidos = forms.CharField()
-    edad = forms.IntegerField()
+    edad = forms.IntegerField(initial = 2)
     donador = forms.BooleanField()
