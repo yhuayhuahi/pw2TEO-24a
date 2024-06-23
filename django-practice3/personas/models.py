@@ -8,8 +8,10 @@ class Persona(models.Model):
     edad = models.IntegerField()
     donador = models.BooleanField()
     
+    #def get_absolute_url(self):
+    #    return reverse('browsing', kwargs={'myID': self.id})
     def get_absolute_url(self):
-        return reverse('browsing', kwargs={'myID': self.id})
-    
+        return reverse('personas:persona-detail', kwars = {'pk': self.id})
+
 
 
