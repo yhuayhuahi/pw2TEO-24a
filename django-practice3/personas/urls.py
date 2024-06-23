@@ -9,5 +9,6 @@ urlpatterns = [
     # django 4 y 5
     path('anotherAdd/', views.personasAnotherCreateView),
     path('personas/<int:myID>/', views.personasShowObject, name='browsing'),
-    path('personas/', views.personasListView)
+    path('personas/', views.personasListView),
+    path('personas/<int:myID>/delete/', views.personasDeleteView, name='deleting'),
 ]
