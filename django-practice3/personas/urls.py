@@ -8,5 +8,6 @@ urlpatterns = [
     path('forms/', views.myForm),
     # django 4 y 5
     path('anotherAdd/', views.personasAnotherCreateView),
-    path('personas/<int:myID>/', views.personasShowObject, name='browsing')
+    path('personas/<int:myID>/', views.personasShowObject, name='browsing'),
+    path('personas/', views.personasListView)
 ]
