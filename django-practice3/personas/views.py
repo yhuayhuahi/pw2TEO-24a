@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Persona
 from .forms import NuevaPersona, RawPersonaForm
+from django.views.generic.list import ListView
 
 # Create your views here.
 def myHomeView(request, *args, **kargs):
@@ -28,7 +29,7 @@ def myForm(request, *args, **kargs):
                       'form': NuevaPersona
                   })
 
-# Django 4 y 5
+# Django 4 
 def personasAnotherCreateView(request):
     form = RawPersonaForm()
     if request.method == "POST":
@@ -66,3 +67,7 @@ def personasDeleteView(request, myID):
         'objeto': obj
     }
     return render(request, 'personasBorrar.html', context)
+#django 5
+class PersonaListView(ListView):
+    model = Persona
+    queryset = Persona.objects.filter(edad__lte='12')

@@ -6,7 +6,7 @@ class NuevaPersona(forms.Form):
     edad = forms.IntegerField(label="Edad")
     donador = forms.BooleanField(label="Donador")
 
-# django 4 y 5
+# django 4 
 class RawPersonaForm(forms.Form):
     nombre = forms.CharField(
         widget = forms.Textarea(
@@ -22,5 +22,5 @@ class RawPersonaForm(forms.Form):
     edad = forms.IntegerField()
     donador = forms.BooleanField()
 
-
+#django 5
 
