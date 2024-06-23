@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Persona
-from .forms import NuevaPersona
+from .forms import NuevaPersona, RawPersonaForm
 
 # Create your views here.
 def myHomeView(request, *args, **kargs):
@@ -27,3 +27,11 @@ def myForm(request, *args, **kargs):
     return render(request, 'formulario.html', {
                       'form': NuevaPersona
                   })
+
+# Django 4 y 5
+def personasAnotherCreateView(request):
+    form = RawPersonaForm(request.POST)
+    context = {
+        'form': form,
+    }
+    return render(request, 'personasCreate.html', context)

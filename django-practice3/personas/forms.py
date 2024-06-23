@@ -5,3 +5,10 @@ class NuevaPersona(forms.Form):
     apellidos = forms.CharField(label="Apellidos")
     edad = forms.IntegerField(label="Edad")
     donador = forms.BooleanField(label="Donador")
+
+# django 4 y 5
+class RawPersonaForm(forms.Form):
+    nombre = forms.CharField()
+    apellidos = forms.CharField()
+    edad = forms.IntegerField()
+    donador = forms.BooleanField()
