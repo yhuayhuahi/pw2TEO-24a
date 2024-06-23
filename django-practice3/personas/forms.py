@@ -21,3 +21,6 @@ class RawPersonaForm(forms.Form):
     apellidos = forms.CharField()
     edad = forms.IntegerField()
     donador = forms.BooleanField()
+
+
+

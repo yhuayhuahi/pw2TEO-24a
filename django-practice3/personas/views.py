@@ -23,7 +23,7 @@ def mySecondView(request, *args, **kargs):
 
 def myForm(request, *args, **kargs):
     print(request.GET)
-    Persona.objects.create(nombre=request.GET[nombre], apellidos=request.GET[apellidos], edad=request.GET[edad], donador=request.GET[donador])
+    Persona.objects.create(nombre=request.GET['nombre'], apellidos=request.GET['apellidos'], edad=request.GET['edad'], donador=request.GET['donador'])
     return render(request, 'formulario.html', {
                       'form': NuevaPersona
                   })
@@ -42,3 +42,10 @@ def personasAnotherCreateView(request):
         'form': form,
     }
     return render(request, 'personasCreate.html', context)
+
+def personasShowObject(request, myID):
+    obj = Persona.objects.get(id = myID)
+    context = {
+        'objeto': obj
+    }
+    return render(request, 'descripcion.html', context)
