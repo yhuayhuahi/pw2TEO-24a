@@ -8,7 +8,16 @@ class NuevaPersona(forms.Form):
 
 # django 4 y 5
 class RawPersonaForm(forms.Form):
-    nombre = forms.CharField(label = "Your Name")
+    nombre = forms.CharField(
+        widget = forms.Textarea(
+            attrs={
+                'placeholder': 'Solo tu nombre porfabor',
+                'id': 'nombreID',
+                'Class': 'special',
+                'cols': 10
+            }
+        )
+    )
     apellidos = forms.CharField()
-    edad = forms.IntegerField(initial = 2)
+    edad = forms.IntegerField()
     donador = forms.BooleanField()
